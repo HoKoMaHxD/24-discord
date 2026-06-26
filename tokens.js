@@ -1,18 +1,36 @@
-// status can be "online", "idle", "dnd", or "invisible" or "offline"
+// الحالات المتاحة: "online", "idle", "dnd", "invisible", "offline"
+
 export default [
     {
-        channelId: "1344059457747026005",
-        serverId: "1344059457046319198",
-        token: process.env.token1,
-        selfDeaf: false,
-        autoReconnect: {
-            enabled: true,
-            delay: 5, // ثواني
-            maxRetries: 5,
-        },
+        // ================= إعدادات التوجيه =================
+        serverId: "766953289409232896",   // أيدي السيرفر
+        channelId: "1520039599290974248",  // أيدي الروم الصوتي
+        token: process.env.token1,         // جلب التوكن من الـ Environment Variables
+        
+        // ================= إعدادات الصوت والحالة =================
+        selfMute: true,                    // إغلاق المايكروفون
+        selfDeaf: false,                   // السماح بسماع الصوت في الروم
         presence: {
-            status: "idle",
+            status: "idle",                // حالة الحساب
         },
-        selfMute: true,
+        
+        // ================= إعدادات الاتصال =================
+        autoReconnect: {
+            enabled: true,                 // تفعيل إعادة الاتصال التلقائي
+            delay: 5,                      // مدة الانتظار (بالثواني) قبل المحاولة
+            maxRetries: 5,                 // أقصى عدد لمحاولات إعادة الاتصال
+        },
     },
+    
+    /* // يمكنك فك التعليق عن هذا الجزء لإضافة حساب ثاني يعمل في نفس الوقت
+    {
+        serverId: "أيدي_السيرفر_هنا",
+        channelId: "أيدي_الروم_هنا",
+        token: process.env.token2,         // لا تنسَ إضافة token2 في بيئة العمل
+        selfMute: true,
+        selfDeaf: true,
+        presence: { status: "dnd" },
+        autoReconnect: { enabled: true, delay: 5, maxRetries: 5 },
+    }
+    */
 ];
